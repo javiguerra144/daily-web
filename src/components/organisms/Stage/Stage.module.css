@@ -1,0 +1,116 @@
+.stage {
+  position: relative;
+  border-radius: 26px;
+  border: 1px solid #ffffff14;
+  min-height: 600px;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+  background: radial-gradient(ellipse at 50% 50%, #3a2d5c 0%, #221b36 45%, #15111f 100%);
+  box-shadow:
+    inset 0 0 120px #00000080,
+    0 30px 60px -30px #000;
+}
+
+.stage::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(#ffffff08 1px, transparent 1px),
+    linear-gradient(90deg, #ffffff08 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, #000 25%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 50% 50%, #000 25%, transparent 75%);
+}
+
+.rays {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 1600px;
+  height: 1600px;
+  margin: -800px 0 0 -800px;
+  pointer-events: none;
+  opacity: 0.5;
+  background: repeating-conic-gradient(from 0deg, #f2c14e22 0deg 6deg, transparent 6deg 18deg);
+  -webkit-mask-image: radial-gradient(circle, #000 0%, transparent 45%);
+  mask-image: radial-gradient(circle, #000 0%, transparent 45%);
+  animation: spin 80s linear infinite;
+}
+
+.glow {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 70%;
+  aspect-ratio: 1;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  background: radial-gradient(circle, #9b7bf540 0%, #ff6b5e1a 40%, transparent 70%);
+  filter: blur(10px);
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.inner {
+  position: relative;
+  width: 420px;
+  height: 760px;
+  transform: scale(var(--scale, 1));
+  transform-origin: center;
+}
+
+.flash {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 10px;
+  height: 10px;
+  margin: -263px 0 0 -5px;
+  border-radius: 50%;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+}
+
+.go {
+  animation: flash 0.6s ease-out;
+}
+
+@keyframes flash {
+  0% {
+    opacity: 1;
+    box-shadow:
+      0 0 0 0 #fff,
+      0 0 40px 20px var(--gold);
+  }
+
+  100% {
+    opacity: 0;
+    box-shadow:
+      0 0 0 160px #ffffff00,
+      0 0 120px 60px #f2c14e00;
+  }
+}
+
+.rarity {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-top: 248px;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gold);
+  white-space: nowrap;
+}

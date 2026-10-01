@@ -1,0 +1,31 @@
+.clock {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.clock > p {
+  margin-bottom: 0;
+}
+
+.now {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+  min-width: 0;
+}
+
+.now strong {
+  font-size: 18px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+.status {
+  font-size: 13px;
+  color: var(--muted);
+  min-height: 1.4em;
+}
