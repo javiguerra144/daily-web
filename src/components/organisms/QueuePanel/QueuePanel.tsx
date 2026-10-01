@@ -1,3 +1,4 @@
+import { useEffect, useRef } from 'react';
 import { Button } from '@/components/atoms/Button/Button';
 import { Panel } from '@/components/atoms/Panel/Panel';
 import { SectionLabel } from '@/components/atoms/SectionLabel/SectionLabel';
@@ -33,8 +34,22 @@ export function QueuePanel({
   // The row unmasks as the card flips, a beat before the turn actually starts.
   const activeIdx = current || phase === 'flipping' ? idx : -1;
 
+  const listRef = useRef<HTMLUListElement>(null);
+  // Keep the active row visible inside the scrollable list (without scrolling the page).
+  useEffect(() => {
+    const list = listRef.current;
+    const row = list?.children[activeIdx] as HTMLElement | undefined;
+    if (!list || !row) return;
+    const top = row.offsetTop;
+    const bottom = top + row.offsetHeight;
+    if (top < list.scrollTop) list.scrollTo({ top, behavior: 'smooth' });
+    else if (bottom > list.scrollTop + list.clientHeight) {
+      list.scrollTo({ top: bottom - list.clientHeight, behavior: 'smooth' });
+    }
+  }, [activeIdx]);
+
   return (
-    <Panel>
+    <Panel className={styles.panel}>
       <div className={styles.head}>
         <SectionLabel flush>Today's order</SectionLabel>
         <Button
@@ -46,7 +61,7 @@ export function QueuePanel({
           🎲 Reroll
         </Button>
       </div>
-      <ul key={rerollNonce} className={styles.queue}>
+      <ul key={rerollNonce} ref={listRef} className={styles.queue}>
         {order.length === 0 && (
           <li className={styles.empty}>No people. Open “Team & time” to add some.</li>
         )}

@@ -17,7 +17,7 @@ export function useStageScale(stageRef: RefObject<HTMLElement | null>, active: b
     if (!stage || !width) return;
     const available = Math.max(
       480,
-      window.innerHeight - (stage.getBoundingClientRect().top + window.scrollY) - 24,
+      window.innerHeight - (stage.getBoundingClientRect().top + window.scrollY) - 36,
     );
     const scale = Math.min(1.7, (width - 24) / STAGE_WIDTH, available / STAGE_HEIGHT);
     setFit({ scale, minHeight: Math.max(460, STAGE_HEIGHT * scale) });

@@ -21,6 +21,17 @@
   gap: 14px;
 }
 
+/* Desktop: the side column spans exactly the stage frame height. */
+@media (min-width: 901px) {
+  .table {
+    align-items: stretch;
+  }
+
+  .side {
+    contain: size;
+  }
+}
+
 @media (max-width: 900px) {
   .table {
     grid-template-columns: 1fr;

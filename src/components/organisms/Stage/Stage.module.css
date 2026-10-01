@@ -65,6 +65,8 @@
   height: 760px;
   transform: scale(var(--scale, 1));
   transform-origin: center;
+  /* Transforms do not affect layout: shrink the footprint to the scaled size so the page fits the viewport. */
+  margin-block: calc((var(--scale, 1) - 1) * 380px);
 }
 
 .flash {
