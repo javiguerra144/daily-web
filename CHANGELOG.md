@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/javiguerra144/daily-web/compare/v1.0.0...v1.0.1) (2026-10-01)
+
+
+### Bug Fixes
+
+* add favicon ([f7962c7](https://github.com/javiguerra144/daily-web/commit/f7962c71cce49be7e6ce180cb78fac9462488a8a))
+
 # 1.0.0 (2026-10-01)
 
 
