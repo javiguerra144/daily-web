@@ -2,11 +2,9 @@
 
 Temporizador para dailies en el que cada turno es la apertura de un sobre de cartas: se abre el sobre, aparece la carta de quien habla y empieza su cuenta atrás. Si se pasa del aviso, la carta empieza a quemarse.
 
-[![CI](https://github.com/OWNER/daily-pack/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/daily-pack/actions/workflows/ci.yml)
+[![CI](https://github.com/javiguerra144/daily-pack/actions/workflows/ci.yml/badge.svg)](https://github.com/javiguerra144/daily-pack/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/commits-conventional-fe5196.svg)](https://www.conventionalcommits.org)
-
-> Sustituye `OWNER` por tu usuario u organización de GitHub.
 
 ## Características
 
