@@ -1,0 +1,25 @@
+.time {
+  font-family: var(--mono);
+  font-weight: 700;
+  font-size: clamp(56px, 9vw, 84px);
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: -0.02em;
+  color: var(--fg);
+  transition: color 0.3s;
+}
+
+.warn {
+  color: var(--warn);
+}
+
+.over {
+  color: var(--over);
+  animation: pulse 1s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  50% {
+    opacity: 0.55;
+  }
+}

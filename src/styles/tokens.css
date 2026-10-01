@@ -1,0 +1,20 @@
+:root {
+  --bg: #15121e;
+  --surface: #211d2e;
+  --surface-2: #2c2740;
+  --line: #3b3452;
+  --fg: #f3eee4;
+  --muted: #a39bb8;
+  --gold: #f2c14e;
+  --coral: #ff6b5e;
+  --sky: #58b8f0;
+  --mint: #5fd3a4;
+  --warn: #f5a43a;
+  --over: #ff5a64;
+  --stock: #f7f0df;
+  --ink: #231f2c;
+  --display: 'Bungee', 'Arial Black', Impact, sans-serif;
+  --body: 'Figtree', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --mono: 'Chivo Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+  color-scheme: dark;
+}
