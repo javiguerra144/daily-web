@@ -1,28 +1,28 @@
 # Daily Pack
 
-Temporizador para dailies en el que cada turno es la apertura de un sobre de cartas: se abre el sobre, aparece la carta de quien habla y empieza su cuenta atrás. Si se pasa del aviso, la carta empieza a quemarse.
+A stand-up timer where every turn is a trading-card pack opening: the pack opens, the speaker's card appears and their countdown starts. If they run past the warning, the card starts to burn.
 
 [![CI](https://github.com/javiguerra144/daily-web/actions/workflows/ci.yml/badge.svg)](https://github.com/javiguerra144/daily-web/actions/workflows/ci.yml)
 [![License: MIT](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 [![Conventional Commits](https://img.shields.io/badge/commits-conventional-fe5196.svg)](https://www.conventionalcommits.org)
 
-## Características
+## Features
 
-- Orden aleatorio (o fijo) del equipo, con **reroll** de quienes aún no han hablado.
-- Tiempo por persona configurable, aviso previo, sonido, +30 s, pausa y "ausente".
-- Cartas con ilustración generada a partir del nombre, o con tu propia imagen.
-- Efecto holográfico, animación de apertura y carta que se quema al agotarse el tiempo.
-- Configuración guardada en `localStorage`; sin backend.
-- Atajos: `Espacio` abrir / siguiente · `P` pausa · `R` reroll.
-- Respeta `prefers-reduced-motion`.
+- Random (or fixed) team order, with a **reroll** for those who haven't spoken yet.
+- Configurable time per person, early warning, sound, +30 s, pause and "absent".
+- Cards with artwork generated from the name, or your own image.
+- Holographic effect, opening animation and a card that burns when time runs out.
+- Settings saved in `localStorage`; no backend.
+- Shortcuts: `Space` open / next · `P` pause · `R` reroll.
+- Respects `prefers-reduced-motion`.
 
 ## Stack
 
 React 19 · TypeScript · Vite · CSS Modules · Vitest + Testing Library · ESLint (flat config) · Prettier · Husky + lint-staged + commitlint · semantic-release · GitHub Actions.
 
-## Empezar
+## Getting started
 
-Requiere Node.js 20 o superior.
+Requires Node.js 20 or higher.
 
 ```bash
 npm install
@@ -31,50 +31,50 @@ npm run dev
 
 ## Scripts
 
-| Script              | Descripción                                   |
-| ------------------- | --------------------------------------------- |
-| `npm run dev`       | Servidor de desarrollo                        |
-| `npm run build`     | Typecheck + build de producción en `dist/`    |
-| `npm run preview`   | Sirve el build localmente                     |
-| `npm run lint`      | ESLint (`lint:fix` para autocorregir)         |
-| `npm run format`    | Prettier (`format:check` en CI)               |
-| `npm run typecheck` | `tsc` sin emitir                              |
-| `npm test`          | Tests una vez (`test:watch`, `test:coverage`) |
+| Script              | Description                                    |
+| ------------------- | ---------------------------------------------- |
+| `npm run dev`       | Development server                             |
+| `npm run build`     | Typecheck + production build into `dist/`      |
+| `npm run preview`   | Serve the build locally                        |
+| `npm run lint`      | ESLint (`lint:fix` to autofix)                 |
+| `npm run format`    | Prettier (`format:check` in CI)                |
+| `npm run typecheck` | `tsc` without emitting                         |
+| `npm test`          | Run tests once (`test:watch`, `test:coverage`) |
 
-## Arquitectura
+## Architecture
 
 ```
 src/
 ├── components/
-│   ├── atoms/       # Button, Panel, Pill, Avatar, TimeDisplay… (sin lógica de dominio)
+│   ├── atoms/       # Button, Panel, Pill, Avatar, TimeDisplay… (no domain logic)
 │   ├── molecules/   # NumberField, QueueItem, TimerControls, TeamMemberRow…
 │   └── organisms/   # Stage, TradingCard, PackSprite, TurnPanel, QueuePanel, SettingsPanel…
-├── features/daily/  # Lógica de la daily: reducer de sesión, orquestación (useDaily), fases del escenario
-├── hooks/           # Hooks genéricos: useTimer, useSettings, useShine, useBurn, useStageScale…
-├── services/        # Efectos del navegador: localStorage, Web Audio, Wake Lock
-├── utils/           # Funciones puras: formato, aleatoriedad, arte procedural, campo de quemado
-├── constants/       # Roles, valores por defecto, rarezas
-├── styles/          # Tokens de diseño y estilos globales
+├── features/daily/  # Stand-up logic: session reducer, orchestration (useDaily), stage phases
+├── hooks/           # Generic hooks: useTimer, useSettings, useShine, useBurn, useStageScale…
+├── services/        # Browser effects: localStorage, Web Audio, Wake Lock
+├── utils/           # Pure functions: formatting, randomness, procedural art, burn field
+├── constants/       # Roles, defaults, rarities
+├── styles/          # Design tokens and global styles
 └── types/
 ```
 
-Decisiones clave:
+Key decisions:
 
-- **Estado de la sesión como reducer puro** (`sessionReducer`), fácil de testear.
-- **Animación de apertura como máquina de fases** (`StagePhase`): `useDaily` avanza la fase y los componentes derivan sus clases CSS de ella; un contador de generación cancela secuencias abandonadas al reiniciar.
-- **Temporizador sobre `requestAnimationFrame`** con el valor exacto en un ref y estado publicado cada 100 ms para no renderizar a 60 fps.
-- **Efectos visuales intensivos** (brillo, quemado) escriben directamente en el DOM desde hooks dedicados.
+- **Session state as a pure reducer** (`sessionReducer`), easy to test.
+- **Opening animation as a phase machine** (`StagePhase`): `useDaily` advances the phase and components derive their CSS classes from it; a generation counter cancels abandoned sequences on reset.
+- **Timer on `requestAnimationFrame`** with the exact value in a ref and state published every 100 ms, so it doesn't render at 60 fps.
+- **Heavy visual effects** (shine, burn) write directly to the DOM from dedicated hooks.
 
-## Flujo de contribución
+## Contributing
 
-Los commits siguen [Conventional Commits](https://www.conventionalcommits.org) (validados con commitlint en un hook `commit-msg`). Lee [CONTRIBUTING.md](CONTRIBUTING.md).
+Commits follow [Conventional Commits](https://www.conventionalcommits.org) (validated by commitlint in a `commit-msg` hook). See [CONTRIBUTING.md](CONTRIBUTING.md).
 
-## Releases y despliegue
+## Releases and deployment
 
-- **CI** (`ci.yml`): formato, lint, typecheck, tests con cobertura y build en cada PR y push a `main`; en PRs también valida los mensajes de commit.
-- **Release** (`release.yml`): tras un CI verde en `main`, [semantic-release](https://semantic-release.gitbook.io) calcula la versión, actualiza `CHANGELOG.md`, crea el tag y la release de GitHub.
-- **Deploy** (`deploy.yml`): publica `dist/` en GitHub Pages. Actívalo en _Settings → Pages → Source: GitHub Actions_.
+- **CI** (`ci.yml`): format, lint, typecheck, tests with coverage and build on every PR and push to `main`; on PRs it also validates commit messages.
+- **Release** (`release.yml`): after a green CI on `main`, [semantic-release](https://semantic-release.gitbook.io) computes the version, updates `CHANGELOG.md`, creates the tag and the GitHub release.
+- **Deploy** (`deploy.yml`): publishes `dist/` to GitHub Pages. Enable it under _Settings → Pages → Source: GitHub Actions_.
 
-## Licencia
+## License
 
 [MIT](LICENSE)
