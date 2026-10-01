@@ -1,0 +1,46 @@
+.member {
+  display: grid;
+  grid-template-columns: 48px minmax(0, 1fr) 130px auto auto;
+  gap: 8px;
+  align-items: center;
+  background: var(--surface-2);
+  border-radius: 12px;
+  padding: 8px;
+}
+
+.member input[type='text'],
+.member select {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 7px 9px;
+  width: 100%;
+  min-width: 0;
+}
+
+.upload {
+  composes: iconBtn from '../../atoms/IconButton/IconButton.module.css';
+  position: relative;
+  overflow: hidden;
+}
+
+.upload input {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 560px) {
+  .member {
+    grid-template-columns: 48px minmax(0, 1fr) auto;
+  }
+
+  .member select {
+    grid-column: 2 / 3;
+  }
+
+  .upload {
+    grid-column: 3;
+  }
+}

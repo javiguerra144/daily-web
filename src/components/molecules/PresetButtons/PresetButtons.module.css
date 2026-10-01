@@ -1,0 +1,10 @@
+.presets {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.preset {
+  padding: 6px 10px;
+  font-size: 13px;
+}
