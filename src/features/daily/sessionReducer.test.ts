@@ -78,14 +78,14 @@ describe('selectors', () => {
 
   it('labels the main button through the daily lifecycle', () => {
     const start = fresh();
-    expect(mainButtonLabel(start)).toBe('Empezar daily');
-    expect(mainButtonLabel(reveal(start))).toBe('Siguiente sobre');
+    expect(mainButtonLabel(start)).toBe('Start stand-up');
+    expect(mainButtonLabel(reveal(start))).toBe('Next pack');
 
     const last = reveal(createSession([first!]));
-    expect(mainButtonLabel(last)).toBe('Terminar daily');
+    expect(mainButtonLabel(last)).toBe('Finish stand-up');
 
     const done = sessionReducer(last, { type: 'finish', result: { absent: true } });
-    expect(mainButtonLabel(done)).toBe('Daily terminada');
+    expect(mainButtonLabel(done)).toBe('Stand-up done');
   });
 
   it('disables the main button while busy or when there is nobody', () => {

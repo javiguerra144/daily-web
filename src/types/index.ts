@@ -1,5 +1,5 @@
 export type Role =
-  'Frontend' | 'Backend' | 'QA' | 'Diseño' | 'Producto' | 'Data' | 'DevOps' | 'Scrum';
+  'Frontend' | 'Backend' | 'QA' | 'Design' | 'Product' | 'Data' | 'DevOps' | 'Scrum';
 
 export interface Member {
   id: string;

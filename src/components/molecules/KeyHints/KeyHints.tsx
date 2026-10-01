@@ -4,7 +4,7 @@ import styles from './KeyHints.module.css';
 export function KeyHints() {
   return (
     <p className={styles.hint}>
-      <Kbd>Espacio</Kbd> abrir / siguiente · <Kbd>P</Kbd> pausa · <Kbd>R</Kbd> reroll
+      <Kbd>Space</Kbd> open / next · <Kbd>P</Kbd> pause · <Kbd>R</Kbd> reroll
     </p>
   );
 }

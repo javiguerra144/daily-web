@@ -31,21 +31,21 @@ export function SettingsPanel({
   onClose,
 }: SettingsPanelProps) {
   return (
-    <Panel className={styles.settings} hidden={hidden} aria-label="Configuración">
-      <h2>Configura la daily</h2>
+    <Panel className={styles.settings} hidden={hidden} aria-label="Settings">
+      <h2>Set up the stand-up</h2>
 
       <div>
-        <SectionLabel>Tiempo por persona</SectionLabel>
+        <SectionLabel>Time per person</SectionLabel>
         <div className={styles.row}>
           <NumberField
-            label="Minutos"
+            label="Minutes"
             min={0}
             max={30}
             value={settings.minutes}
             onCommit={minutes => onChange({ minutes })}
           />
           <NumberField
-            label="Segundos"
+            label="Seconds"
             min={0}
             max={59}
             step={5}
@@ -53,7 +53,7 @@ export function SettingsPanel({
             onCommit={seconds => onChange({ seconds })}
           />
           <NumberField
-            label="Aviso (s)"
+            label="Warning (s)"
             min={0}
             max={600}
             step={5}
@@ -69,18 +69,18 @@ export function SettingsPanel({
 
       <div className={styles.row}>
         <Checkbox checked={settings.shuffle} onChange={shuffle => onChange({ shuffle })}>
-          Orden aleatorio cada daily
+          Random order every stand-up
         </Checkbox>
         <Checkbox checked={settings.autoNext} onChange={autoNext => onChange({ autoNext })}>
-          Pasar al siguiente al acabar el tiempo
+          Move to the next person when time runs out
         </Checkbox>
         <Checkbox checked={settings.sound} onChange={sound => onChange({ sound })}>
-          Sonido al avisar
+          Sound on warning
         </Checkbox>
       </div>
 
       <div>
-        <SectionLabel>Equipo</SectionLabel>
+        <SectionLabel>Team</SectionLabel>
         <div className={styles.members}>
           {settings.team.map(member => (
             <TeamMemberRow
@@ -92,20 +92,20 @@ export function SettingsPanel({
           ))}
         </div>
         <div className={styles.add}>
-          <Button onClick={onAddMember}>+ Añadir persona</Button>
+          <Button onClick={onAddMember}>+ Add person</Button>
         </div>
         <p className={styles.note}>
-          Sube una foto o imagen para cada carta; si no hay, se genera una ilustración a partir del
-          nombre. La configuración se guarda en este navegador.
+          Upload a photo or image for each card; if there isn't one, an illustration is generated
+          from the name. Settings are saved in this browser.
         </p>
       </div>
 
       <div className={styles.foot}>
         <Button variant="ghost" onClick={onResetDefaults}>
-          Restaurar ejemplo
+          Restore example
         </Button>
         <Button variant="primary" onClick={onClose}>
-          Guardar y volver
+          Save and go back
         </Button>
       </div>
     </Panel>

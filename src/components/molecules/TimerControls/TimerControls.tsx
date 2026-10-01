@@ -32,16 +32,16 @@ export function TimerControls({
         {mainLabel}
       </Button>
       <Button disabled={!turnActive} onClick={onPause}>
-        {running || !turnActive ? 'Pausa' : 'Seguir'}
+        {running || !turnActive ? 'Pause' : 'Resume'}
       </Button>
       <Button disabled={!turnActive} onClick={onAddTime}>
         +{EXTRA_TIME_SECONDS} s
       </Button>
       <Button disabled={!turnActive} onClick={onSkip}>
-        Ausente
+        Absent
       </Button>
       <Button variant="ghost" onClick={onRestart}>
-        Reiniciar
+        Restart
       </Button>
     </div>
   );

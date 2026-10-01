@@ -8,7 +8,7 @@ export function formatTime(seconds: number): string {
 }
 
 export function formatToday(date = new Date()): string {
-  return date.toLocaleDateString('es-ES', { day: 'numeric', month: 'short', year: 'numeric' });
+  return date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
 }
 
 export function pad2(n: number): string {

@@ -27,7 +27,7 @@ export function useSettings() {
     () =>
       setSettings(prev => ({
         ...prev,
-        team: [...prev.team, { id: randomId(), name: 'Nueva persona', role: 'Frontend', img: '' }],
+        team: [...prev.team, { id: randomId(), name: 'New person', role: 'Frontend', img: '' }],
       })),
     [],
   );

@@ -7,7 +7,7 @@ interface PackSpriteProps {
   phase: StagePhase;
   /** Line under the logo, e.g. "Turno 2 de 6". */
   caption: string;
-  /** Pill at the bottom, e.g. "4 por abrir". */
+  /** Pill at the bottom, e.g. "4 to open". */
   counter: string;
   onOpen: () => void;
 }
@@ -17,7 +17,7 @@ export function PackSprite({ phase, caption, counter, onOpen }: PackSpriteProps)
   return (
     <button
       type="button"
-      aria-label="Abrir sobre"
+      aria-label="Open pack"
       className={cx(
         styles.pack,
         effect === 'idle' && styles.idle,
@@ -34,7 +34,7 @@ export function PackSprite({ phase, caption, counter, onOpen }: PackSpriteProps)
       </span>
       <span className={cx(styles.piece, styles.body)}>
         <span className={styles.face}>
-          <span className={styles.edition}>Edición sprint</span>
+          <span className={styles.edition}>Sprint edition</span>
           <span className={styles.logo}>
             DAILY
             <br />

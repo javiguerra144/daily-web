@@ -74,7 +74,7 @@ export function TradingCard({
               <img alt={`Imagen de ${member.name}`} src={imageFor(member)} />
             </div>
             <div className={styles.type}>
-              {ROLE_TYPES[member.role] ?? 'Tipo Equipo'} · {member.role}
+              {ROLE_TYPES[member.role] ?? 'Team type'} · {member.role}
             </div>
             <div className={styles.foot}>
               <span>

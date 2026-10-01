@@ -11,10 +11,10 @@ export function AppHeader({ edition, onOpenSettings }: AppHeaderProps) {
     <header className={styles.header}>
       <div className={styles.brand}>
         <h1>Daily Pack</h1>
-        <small>Edición {edition}</small>
+        <small>Edition {edition}</small>
       </div>
       <Button variant="ghost" onClick={onOpenSettings}>
-        ⚙ Equipo y tiempo
+        ⚙ Team & time
       </Button>
     </header>
   );

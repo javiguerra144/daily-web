@@ -25,7 +25,7 @@ export function TurnPanel({
 }: TurnPanelProps) {
   return (
     <Panel className={styles.clock}>
-      <SectionLabel>Turno</SectionLabel>
+      <SectionLabel>Turn</SectionLabel>
       <div className={styles.now}>
         <strong>{speaker}</strong>
         <span className={styles.status}>{turnLabel}</span>

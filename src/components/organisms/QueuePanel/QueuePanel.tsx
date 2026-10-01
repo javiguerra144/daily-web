@@ -36,11 +36,11 @@ export function QueuePanel({
   return (
     <Panel>
       <div className={styles.head}>
-        <SectionLabel flush>Orden de hoy</SectionLabel>
+        <SectionLabel flush>Today's order</SectionLabel>
         <Button
           size="sm"
           disabled={!canReroll}
-          title="Barajar de nuevo a quienes no han hablado"
+          title="Reshuffle those who haven't spoken yet"
           onClick={onReroll}
         >
           🎲 Reroll
@@ -48,7 +48,7 @@ export function QueuePanel({
       </div>
       <ul key={rerollNonce} className={styles.queue}>
         {order.length === 0 && (
-          <li className={styles.empty}>Sin personas. Abre «Equipo y tiempo» para añadir.</li>
+          <li className={styles.empty}>No people. Open “Team & time” to add some.</li>
         )}
         {order.map((member, i) => {
           const result = results[member.id];
@@ -72,13 +72,15 @@ export function QueuePanel({
           {started ? (
             <>
               <span>
-                {spokenCount} de {order.length} hablaron
+                {spokenCount} of {order.length} spoke
               </span>
               <span>Total {formatTime(usedTotal)}</span>
             </>
           ) : (
             <>
-              <span>{order.length} personas</span>
+              <span>
+                {order.length} {order.length === 1 ? 'person' : 'people'}
+              </span>
               <span>≈ {formatTime(order.length * turnSeconds)}</span>
             </>
           )}

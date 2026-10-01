@@ -14,24 +14,24 @@ import { formatTime, formatToday } from '@/utils/format';
 
 function describeSpeaker(started: boolean, ended: boolean, current: string | undefined) {
   if (current) return current;
-  if (ended) return 'Todos han pasado';
-  return started ? 'Abriendo sobre…' : 'Nadie todavía';
+  if (ended) return 'Everyone has gone';
+  return started ? 'Opening pack…' : 'Nobody yet';
 }
 
 function describePack(
   { started, ended, idx, order }: ReturnType<typeof useDaily>['session'],
   hasTeam: boolean,
 ) {
-  if (ended) return { caption: '¡Daily terminada!', counter: 'Buen día' };
+  if (ended) return { caption: 'Stand-up done!', counter: 'Have a good one' };
   if (started) {
     return {
       caption: `Turno ${idx + 1} de ${order.length}`,
-      counter: `${order.length - idx} por abrir`,
+      counter: `${order.length - idx} to open`,
     };
   }
   return {
-    caption: hasTeam ? 'Pulsa para empezar' : 'Añade al equipo en ajustes',
-    counter: `${order.length} ${order.length === 1 ? 'carta' : 'cartas'}`,
+    caption: hasTeam ? 'Click to start' : 'Add your team in settings',
+    counter: `${order.length} ${order.length === 1 ? 'card' : 'cards'}`,
   };
 }
 

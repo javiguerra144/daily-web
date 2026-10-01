@@ -15,12 +15,12 @@ const ui = (props: Partial<ComponentProps<typeof QueueItem>> = {}) => (
 describe('QueueItem', () => {
   it('shows the waiting state', () => {
     render(ui());
-    expect(screen.getByText('en cola')).toBeInTheDocument();
+    expect(screen.getByText('queued')).toBeInTheDocument();
   });
 
   it('shows who is speaking', () => {
     render(ui({ current: true, speaking: true }));
-    expect(screen.getByText('Hablando')).toBeInTheDocument();
+    expect(screen.getByText('Speaking')).toBeInTheDocument();
   });
 
   it('shows time used, flagged when over the limit', () => {
@@ -32,6 +32,6 @@ describe('QueueItem', () => {
 
   it('shows absences', () => {
     render(ui({ result: { absent: true } }));
-    expect(screen.getByText('Ausente')).toBeInTheDocument();
+    expect(screen.getByText('Absent')).toBeInTheDocument();
   });
 });

@@ -31,12 +31,12 @@ export function TeamMemberRow({ member, onChange, onRemove }: TeamMemberRowProps
       <input
         type="text"
         value={member.name}
-        aria-label="Nombre"
+        aria-label="Name"
         onChange={e => onChange({ name: e.target.value })}
       />
       <select
         value={member.role}
-        aria-label="Rol"
+        aria-label="Role"
         onChange={e => onChange({ role: e.target.value as Role })}
       >
         {ROLES.map(role => (

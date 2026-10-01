@@ -39,8 +39,8 @@ describe('shuffledDifferent', () => {
 
 describe('pickRarity', () => {
   it('maps the roll onto cumulative probabilities', () => {
-    expect(pickRarity(RARITIES, 0.1)[0]).toBe('Común');
-    expect(pickRarity(RARITIES, 0.65)[0]).toBe('Común');
-    expect(pickRarity(RARITIES, 0.9)[0]).toBe('Poco común');
+    expect(pickRarity(RARITIES, 0.1)[0]).toBe('Common');
+    expect(pickRarity(RARITIES, 0.65)[0]).toBe('Common');
+    expect(pickRarity(RARITIES, 0.9)[0]).toBe('Uncommon');
   });
 });

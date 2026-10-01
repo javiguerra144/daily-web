@@ -29,7 +29,7 @@ function Status({
   speaking,
   started,
 }: Pick<QueueItemProps, 'result' | 'speaking' | 'started'>) {
-  if (result?.absent) return <Pill>Ausente</Pill>;
+  if (result?.absent) return <Pill>Absent</Pill>;
   if (result) {
     return (
       <span className={cx(styles.time, result.used > result.limit ? styles.over : styles.ok)}>
@@ -37,8 +37,8 @@ function Status({
       </span>
     );
   }
-  if (speaking) return <Pill>Hablando</Pill>;
-  return <span className={styles.time}>{started ? 'en cola' : ''}</span>;
+  if (speaking) return <Pill>Speaking</Pill>;
+  return <span className={styles.time}>{started ? 'queued' : ''}</span>;
 }
 
 export function QueueItem({

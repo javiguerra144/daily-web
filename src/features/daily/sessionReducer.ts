@@ -78,10 +78,10 @@ export function totalUsed(results: SessionState['results']): number {
 }
 
 export function mainButtonLabel(state: SessionState): string {
-  if (!state.started) return 'Empezar daily';
-  if (state.current) return remainingTurns(state) > 0 ? 'Siguiente sobre' : 'Terminar daily';
-  if (remainingTurns(state) > 0) return 'Abrir sobre';
-  return 'Daily terminada';
+  if (!state.started) return 'Start stand-up';
+  if (state.current) return remainingTurns(state) > 0 ? 'Next pack' : 'Finish stand-up';
+  if (remainingTurns(state) > 0) return 'Open pack';
+  return 'Stand-up done';
 }
 
 export function isMainDisabled(state: SessionState): boolean {
