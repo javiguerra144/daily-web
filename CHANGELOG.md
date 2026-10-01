@@ -1,3 +1,11 @@
+# [1.1.0](https://github.com/javiguerra144/daily-web/compare/v1.0.1...v1.1.0) (2026-10-01)
+
+
+### Features
+
+* **i18n:** translate the interface to English ([7dcb397](https://github.com/javiguerra144/daily-web/commit/7dcb397559aea492af0de0268dacc7c2aa14fa02))
+* **layout:** align side column with stage and scroll the queue ([a50777b](https://github.com/javiguerra144/daily-web/commit/a50777b86aa8b8e3573e9b3bf95e27df0c64ef97))
+
 ## [1.0.1](https://github.com/javiguerra144/daily-web/compare/v1.0.0...v1.0.1) (2026-10-01)
 
 
